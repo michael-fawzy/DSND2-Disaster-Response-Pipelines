@@ -70,20 +70,19 @@ def tokenize(text):
 
 def build_model():
    '''Function to Build a text processing and machine learning pipeline'''
-    
-    pipeline = Pipeline([
+   pipeline = Pipeline([
         ('vect', CountVectorizer(tokenizer = tokenize)),
         ('tfidf', TfidfTransformer()),
         ('clf', MultiOutputClassifier(RandomForestClassifier()))
     ])
 
-    parameters = {'tfidf__use_idf':[True, False],
+   parameters = {'tfidf__use_idf':[True, False],
               'clf__estimator__n_estimators':[10, 20]}
     
-    model = GridSearchCV(pipeline, param_grid=parameters)
+   model = GridSearchCV(pipeline, param_grid=parameters)
     
 
-    return model
+   return model
     
 def evaluate_model(model, X_test, y_test, category_names):
     '''Function to train and tune a model using GridSearchCV'''

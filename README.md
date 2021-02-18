@@ -4,6 +4,8 @@
 ### Summary
 A flask web app that depends on an ETL pipeline and a machine learning pipeline to categorize emergency messages based on the needs communicated by the sender. An emergency worker can input a new message and get classification results in several categories. The web app also displays visualizations of the data.
 
+Check the project repository on [GitHub](https://github.com/michael-fawzy/DSND2-Disaster-Response-Pipelines).
+
 Disaster data from Figure Eight was used to build a model for an API that classifies disaster messages.
 
 ### Project Components
@@ -11,27 +13,27 @@ There are three components in this project:
 
 1. ETL Pipeline
 
-In a Python script, process_data.py, a data cleaning pipeline is written to:
-
-- Load the messages and categories datasets
-- Merge the two datasets
-- Clean the data
-- Store it in a SQLite database
+    In a Python script, process_data.py, a data cleaning pipeline is written to:
+    
+    - Load the messages and categories datasets
+    - Merge the two datasets
+    - Clean the data
+    - Store it in a SQLite database
 
 2. ML Pipeline
 
-In a Python script, train_classifier.py, a machine learning pipeline was written to:
-
-- Load data from the SQLite database
-- Split the dataset into training and test sets
-- Build a text processing and machine learning pipeline
-- Train and tunes a model using GridSearchCV
-- Output results on the test set
-- Export the final model as a pickle file
+    In a Python script, train_classifier.py, a machine learning pipeline was written to:
+    
+    - Load data from the SQLite database
+    - Split the dataset into training and test sets
+    - Build a text processing and machine learning pipeline
+    - Train and tunes a model using GridSearchCV
+    - Output results on the test set
+    - Export the final model as a pickle file
 
 3. Flask Web App
 
-Displays data visualizations using Plotly and accepts user input of messages to be categorized using the Python script run.py.
+    Displays data visualizations using Plotly and accepts user input of messages to be categorized using the Python script run.py.
 
 ### Instructions:
 1. Run the following commands in the project's root directory to set up your database and model.

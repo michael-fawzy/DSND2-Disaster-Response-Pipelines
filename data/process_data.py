@@ -48,7 +48,7 @@ def clean_data(df):
     df = df.drop('categories', axis=1)
     df= pd.concat([df, categories], axis=1)
     df = df.drop_duplicates()
-    print(df.head())
+    df = df[df.related != 2] # Drop rows containing 2 in 'related' column after merging the dataframes to keep only binary (0,1) values
     return df 
 
         
@@ -62,7 +62,7 @@ def save_data(df, database_filename):
     database_filename: filepath of the database to save the cleaned data to
     '''
     engine = create_engine('sqlite:///' + database_filename)
-    df.to_sql('CleanedData', engine, index=False)  
+    df.to_sql('CleanedData', engine, index=False,  if_exists='replace') # if_exists='replace' Prevents ValueError: Table 'CleanedData' already exists. 
 
 
 def main():
